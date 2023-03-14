@@ -1,13 +1,17 @@
-name: Cron job
+name: Daily Script
+
 on:
   schedule:
-    - cron: '*/1 * * * *' # Runs every day at midnight UTC
-    
+    - cron: '*/5 * * * *' # runs every day at midnight UTC
+
 jobs:
-  build:
+  run-script:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      
-      - name: Print
-        run: echo hello world
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Run script
+        run: |
+          # replace this with the command to run your script
+          echo "Running my daily script"
